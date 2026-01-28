@@ -13,6 +13,10 @@ public class ListRemove extends Target {
         int result = 0;
         
         // remove first 20,000 items from the list
+        for (int i = 0; i < 20_000; i++) {
+            list.remove(0);
+            result++;
+        }
 
         return result;
     }

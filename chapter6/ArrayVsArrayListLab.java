@@ -65,9 +65,9 @@ public class ArrayVsArrayListLab {
         
         for (int i = 0; i < 8; i+= 2) {
             if (testAvg[i] < testAvg[i + 1]) {
-                System.out.println("Array random access wins with a time of: " + testAvg[0]);
+                System.out.println("Array wins with a time of: " + testAvg[i]);
             } else {
-                System.out.println("ArrayList random access wins with a time of: " + testAvg[1]);
+                System.out.println("ArrayList wins with a time of: " + testAvg[i + 1]);
             }
         }     
         fileOut.close();
