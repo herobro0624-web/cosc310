@@ -46,14 +46,12 @@ public class ArrayVsArrayListLab {
         tests[0] = new ArrayRandom(arr, new ArrayList<>(list), "array,random_access");
         tests[1] = new ListRandom(arr, new ArrayList<>(list), "arraylist, random_access");
         tests[2] = new ArrayAppend(arr, new ArrayList<>(list), "array,append");
-        //tests[3] = new ListAppend(arr, new ArrayList<>(list), "arraylist,append");
+        tests[3] = new ListAppend(arr, new ArrayList<>(list), "arraylist,append");
         tests[4] = new ArrayInsert(arr, new ArrayList<>(list), "array,insert");
-        //tests[5] = new ListInsert(arr, new ArrayList<>(list), "arraylist,insert");
+        tests[5] = new ListInsert(arr, new ArrayList<>(list), "arraylist,insert");
         tests[6] = new ArrayRemove(arr, new ArrayList<>(list), "array,remove");
         tests[7] = new ListRemove(arr, new ArrayList<>(list), "arraylist,remove");
         
-        
-
 
         for (int i = 0; i < tests.length; i++) {
             Target target = tests[i];
@@ -63,12 +61,15 @@ public class ArrayVsArrayListLab {
             }
         }
         
-        for (int i = 0; i < 8; i+= 2) {
-            if (testAvg[i] < testAvg[i + 1]) {
-                System.out.println("Array wins with a time of: " + testAvg[i]);
-            } else {
-                System.out.println("ArrayList wins with a time of: " + testAvg[i + 1]);
-            }
+        // Pretty-print comparison: operation name, array avg (ns), arraylist avg (ns), winner
+        String ops[] = {"random_access", "append", "insert", "remove"};
+        for (int j = 0; j < ops.length; j++) {
+            int base = j * 2;
+            double arrayNs = testAvg[base];
+            double listNs  = testAvg[base + 1];
+            String winner = arrayNs < listNs ? "array" : "arraylist";
+            System.out.printf("Operation: %s array avg: %.2f ns arraylist avg: %.2f ns winner: %s%n",
+                              ops[j], arrayNs, listNs, winner);
         }     
         fileOut.close();
         
