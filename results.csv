@@ -1,40 +1,40 @@
-array,random_access,1,864.04
-array,random_access,2,230.79
-array,random_access,3,225.58
-array,random_access,4,218.88
-array,random_access,5,219.00
-arraylist, random_access,1,4927.71
-arraylist, random_access,2,1167.88
-arraylist, random_access,3,830.79
-arraylist, random_access,4,272.08
-arraylist, random_access,5,242.63
-array,append,1,1618.88
-array,append,2,358.71
-array,append,3,341.83
-array,append,4,361.63
-array,append,5,347.75
-arraylist,append,1,3116.83
-arraylist,append,2,1440.79
-arraylist,append,3,1443.00
-arraylist,append,4,12652.58
-arraylist,append,5,692.71
-array,insert,1,1632.92
-array,insert,2,729.67
-array,insert,3,715.17
-array,insert,4,710.88
-array,insert,5,727.58
-arraylist,insert,1,1422322.46
-arraylist,insert,2,1410900.92
-arraylist,insert,3,1412516.88
-arraylist,insert,4,1409103.63
-arraylist,insert,5,1399913.96
-array,remove,1,1384.75
-array,remove,2,404.29
-array,remove,3,400.67
-array,remove,4,406.75
-array,remove,5,401.21
-arraylist,remove,1,351914.08
-arraylist,remove,2,315381.88
-arraylist,remove,3,278980.08
-arraylist,remove,4,241057.50
-arraylist,remove,5,204083.13
+array,random_access,1,878.04
+array,random_access,2,229.42
+array,random_access,3,226.58
+array,random_access,4,221.33
+array,random_access,5,218.88
+arraylist, random_access,1,5850.25
+arraylist, random_access,2,1360.71
+arraylist, random_access,3,919.58
+arraylist, random_access,4,272.17
+arraylist, random_access,5,242.67
+array,append,1,1633.42
+array,append,2,344.83
+array,append,3,359.54
+array,append,4,323.88
+array,append,5,341.17
+arraylist,append,1,3121.92
+arraylist,append,2,1411.25
+arraylist,append,3,1589.21
+arraylist,append,4,12634.04
+arraylist,append,5,701.46
+array,insert,1,1684.04
+array,insert,2,734.96
+array,insert,3,723.75
+array,insert,4,719.46
+array,insert,5,738.38
+arraylist,insert,1,1442894.75
+arraylist,insert,2,1582624.17
+arraylist,insert,3,1420304.83
+arraylist,insert,4,1403618.92
+arraylist,insert,5,1439966.92
+array,remove,1,1256.42
+array,remove,2,413.92
+array,remove,3,406.42
+array,remove,4,397.29
+array,remove,5,407.79
+arraylist,remove,1,357437.63
+arraylist,remove,2,382289.92
+arraylist,remove,3,284683.33
+arraylist,remove,4,245520.13
+arraylist,remove,5,210307.13
