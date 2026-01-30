@@ -61,7 +61,6 @@ public class ArrayVsArrayListLab {
             }
         }
         
-        // Pretty-print comparison: operation name, array avg (ns), arraylist avg (ns), winner
         String ops[] = {"random_access", "append", "insert", "remove"};
         for (int j = 0; j < ops.length; j++) {
             int base = j * 2;
