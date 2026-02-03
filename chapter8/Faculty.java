@@ -8,5 +8,4 @@ public class Faculty extends Employee {
     public String getType() {
         return "Faculty";
     }
-    
 }
