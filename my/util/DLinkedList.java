@@ -9,7 +9,31 @@ public class DLinkedList<T> {
     public DLinkedList() {
 
     }
-    
+    /*
+    return null if i is invalid
+     */
+    public DNode<T> get(int i) {
+        if (i > size || i < 0)
+            return null;
+
+        if (i < size/2) {
+            //Start at head
+            DNode<T> n = head;
+            for (int j = 0; j < i; j++) {
+                n = n.getNext();
+            }
+            return n;
+
+        } else {
+            //Start at tail
+            DNode<T> n = tail;
+            for (int j = 0; j < size - i - 1; j++) {
+                n = n.getPrev();
+            }
+            return n;
+
+        }
+    }
     // need to break the connection between node and whatever its current "next" is
     public void addAfter(DNode<T> node, T data) {
         if (node==tail) {
@@ -64,5 +88,36 @@ public class DLinkedList<T> {
     public String toString() {
         return "DLinkedList [head=" + head + ", tail=" + tail + ", size=" + size + "]";
     }
+    /**
+     * Returns null if list is empty
+     * Otherwise last node
+     * @return
+     */
+    public DNode<T> removeLast() {
+        if (size == 0) {
+            return null;
+        } else if (size == 1) {
+            DNode<T> n = tail;
+            head = null;
+            tail = null;
+            size--;
+            return n;
+        }
+        // only make it here if a normal list
+        DNode<T> oldtail = tail;
+        tail.getPrev().setNext(null);
+        tail = tail.getPrev();
+        size--;
 
+        if (size == 1) {
+            head = tail;
+        }
+        return oldtail;
+    }
+    public int size() {
+        return size;
+    }
+    public boolean isEmpty() {
+        return size == 0;
+    }
 }

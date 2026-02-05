@@ -3,6 +3,10 @@ package chapter9;
 import my.util.DLinkedList;
 
 public class Lab2 {
+
+    public static void runStackTests(Stack stack, String whichStack) {
+
+    }
     public static void main(String[] args) {
         Stack<String> airports = new ArrayStack<>();
         System.out.println(airports);
@@ -30,5 +34,11 @@ public class Lab2 {
         System.out.println(list);
         list.add("MSP");
         System.out.println(list);
+        list.add("LAX");
+        System.out.println(list);
+        System.out.println(list.get(0));
+        System.out.println(list.get(1));
+        System.out.println(list.get(2));
+        System.out.println(list.get(3));
     }
 }
