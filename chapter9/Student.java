@@ -7,12 +7,12 @@ public class Student implements Comparable<Student> {
     public Student(String name) {
         this.name = name;
     }
-    
+
     @Override
     public int compareTo(Student o) {
-        String part1[] = name.split(" ");
-        String part2[] = o.name.split(" ");
-        return part1[1].compareTo(part2[1]);
+        String parts1[] = name.split(" ");
+        String parts2[] = o.name.split(" ");
+        return parts1[1].compareTo(parts2[1]);
     }
 
     @Override
@@ -24,12 +24,13 @@ public class Student implements Comparable<Student> {
         Student students[] = new Student[] {
             new Student("John Smith"),
             new Student("Adam Sandler"),
-            new Student( "Zack Thomas")
+            new Student("Zack Thomas:")
         };
-        System.out.println("Before");
+        System.out.println("BEFORE:");
         System.out.println(java.util.Arrays.toString(students));
-        System.out.println("After");
         java.util.Arrays.sort(students);
+        System.out.println("AFTER:");
         System.out.println(java.util.Arrays.toString(students));
     }
+    
 }

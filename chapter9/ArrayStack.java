@@ -3,7 +3,7 @@ package chapter9;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
-public class ArrayStack<T> implements Stack<T> {
+public class ArrayStack<T> implements Stack<T>, Comparable<Stack<T>> {
 
     ArrayList<T> data = new ArrayList<>();
 
@@ -52,8 +52,9 @@ public class ArrayStack<T> implements Stack<T> {
         }
     }
 
-    
-
-    
+    @Override
+    public int compareTo(Stack<T> o) {
+        return size()-o.size();
+    }
 
 }
