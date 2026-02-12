@@ -5,12 +5,17 @@ import my.util.DNode;
 
 public class SortedDLinkedListPriorityQueue<T> implements PriorityQueue<T> {
 
-    private static class Entry<T> {
+    private static class Entry<T> implements Comparable<Entry<T>> {
         final int priority;
         final T data;
         Entry(int priority, T data) {
             this.priority = priority;
             this.data = data;
+        }
+
+        @Override
+        public int compareTo(Entry<T> o) {
+            return o.priority - this.priority;
         }
     }
 
@@ -22,7 +27,23 @@ public class SortedDLinkedListPriorityQueue<T> implements PriorityQueue<T> {
 
     @Override
     public void enqueue(int priority, T data) {
+        Entry<T> newEntry = new Entry<>(priority, data);
+        if (isEmpty()) {
+            list.add(newEntry);
+            return;
+        }
         // TODO: find insertion point and insert so list is sorted by priority ASC
+        // Algorithm: make sure first item in DLinkedList is highest priority
+        // Start at first and traverse until higher priority
+        // Insert new item before the one just found
+        DNode<Entry<T>> curr = list.get(0);
+        while (curr != null) {
+            if (priority < curr.getData().priority) {
+                list.addBefore(curr, newEntry);
+                break;
+            }
+            curr = curr.getNext();
+        }
     }
 
     @Override

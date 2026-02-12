@@ -1,0 +1,9 @@
+{
+    "workbench.colorCustomizations": {
+        "editor.background": "#000000",
+        "editor.lineHighlightBackground": "#2e2e2e"
+    },
+    "editor.tokenColorCustomizations": {
+        "comments": "#00cdac"
+    }
+}
