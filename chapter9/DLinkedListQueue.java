@@ -3,7 +3,6 @@ package chapter9;
 import java.util.NoSuchElementException;
 
 import my.util.DLinkedList;
-import my.util.DNode;
 
 public class DLinkedListQueue<T> implements Queue<T> {
 
@@ -20,17 +19,14 @@ public class DLinkedListQueue<T> implements Queue<T> {
 
     @Override
     public T dequeue() throws Exception {
-        // checks if empty if working correctly
-        if (isEmpty()) {
-            throw new NoSuchElementException();
-        }
+        // TODO (dequeue from head using removeFirst())
         return list.removeFirst().getData();
     }
 
     @Override
     public T front() throws Exception {
         // TODO (peek at head)
-        return null;
+        return list.get(0).getData();
     }
 
     @Override

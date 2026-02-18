@@ -28,17 +28,17 @@ public class ArrayListQueue<T> implements Queue<T> {
 
     @Override
     public T dequeue() throws Exception {
+        // TODO - check for empty queue
         T item = buffer.get(head);
         size--;
         head = (head + 1) % buffer.size();
         return item;
-
     }
 
     @Override
     public T front() throws Exception {
         // TODO
-        return null;
+        return buffer.get(head);
     }
 
     @Override
@@ -52,20 +52,22 @@ public class ArrayListQueue<T> implements Queue<T> {
     }
 
     private void ensureCapacity() {
-        // TODO: if needed > buffer.size(), double capacity and re-center head at 0'
-        if (size + 1 > buffer.size()) {
-            // TODO: resize and recenter
-            return; 
-        }
-        int oldcap = buffer.size();
-        ArrayList<T> bigbuffer = new ArrayList<>();
+        // TODO: if needed > buffer.size(), double capacity and re-center head at 0
+        if (size < buffer.size())
+            return;
 
-        for (int i = 0; i < oldcap; i++) {
-            bigbuffer.set(i, buffer.get(head));
+        // resize and recenter
+        int oldcap = buffer.size();
+        ArrayList<T> bigbuffer = new ArrayList<>(oldcap*2);
+        for (int i = 0; i < oldcap*2; i++) {
+            bigbuffer.add(null);    
+        }
+        for (int i=0; i<oldcap; i++) {
+            bigbuffer.set(i,buffer.get(head));
             head = (head + 1) % oldcap;
         }
-        buffer = bigbuffer; // it's the old switcheroo
+        buffer = bigbuffer; // the "old" swaperoo trick
+        head = 0;
         tail = oldcap;
-
     }
 }
