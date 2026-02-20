@@ -18,7 +18,6 @@ public class ArrayListStack<T> implements Stack<T> {
 
     @Override
     public T pop() throws Exception {
-        // TODO
         if (isEmpty()) {
             throw new EmptyStackException();
         }
@@ -27,7 +26,6 @@ public class ArrayListStack<T> implements Stack<T> {
 
     @Override
     public T top() throws Exception {
-        // TODO
         if (isEmpty()) {
             throw new EmptyStackException();
         }

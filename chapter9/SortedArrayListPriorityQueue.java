@@ -1,6 +1,7 @@
 package chapter9;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class SortedArrayListPriorityQueue<T> implements PriorityQueue<T> {
 
@@ -33,13 +34,17 @@ public class SortedArrayListPriorityQueue<T> implements PriorityQueue<T> {
 
     @Override
     public T dequeue() throws Exception {
-        // TODO: remove index 0
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
         return list.remove(0).data;
     }
 
     @Override
     public T front() throws Exception {
-        // TODO: return index 0
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
         return list.getFirst().data;
     }
 
