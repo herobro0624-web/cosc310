@@ -17,9 +17,7 @@ All implementations passed sanity checks and produced identical checksums per wo
 
 **Analysis**
 
-The ArrayListStack performed better, especially in the mixed workload. Although both implementations perform push and pop efficiently, the ArrayList stores elements in contiguous memory. This improves cache performance and avoids creating extra node objects.  
-
-The linked list version must allocate a node for every push and follow pointers during operations, which increases overhead.  
+The ArrayListStack performed better, especially in the mixed workload. Although both implementations perform push and pop efficiently, the ArrayList stores elements in contiguous memory. This improves performance and avoids time-extending issues, unlike DLinkedListStack.  
 
 **Winner: ArrayListStack**
 
@@ -35,8 +33,6 @@ The linked list version must allocate a node for every push and follow pointers 
 **Analysis**
 
 Both implementations perform similarly in the bulk workload. However, under mixed operations, the ArrayListQueue is faster.  
-
-The circular buffer keeps elements in contiguous memory and avoids extra object allocation. The linked list must allocate nodes and follow pointers, which adds overhead.  
 
 **Winner: ArrayListQueue**
 
