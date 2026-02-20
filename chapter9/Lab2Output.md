@@ -64,8 +64,40 @@ Under skewed priorities, the heap becomes slightly faster because it often requi
 
 ---
 
+# Complete Benchmark Results
+
+| ADT            | Implementation                | Workload                          | Median (ns/op) |
+|----------------|------------------------------|-----------------------------------|----------------|
+| Stack          | ArrayListStack               | W1 Bulk                           | 14.97          |
+| Stack          | ArrayListStack               | W2 Mixed                          | 25.79          |
+| Stack          | DLinkedListStack             | W1 Bulk                           | 18.15          |
+| Stack          | DLinkedListStack             | W2 Mixed                          | 80.18          |
+| Queue          | ArrayListQueue               | W1 Bulk                           | 14.34          |
+| Queue          | ArrayListQueue               | W2 Mixed                          | 30.73          |
+| Queue          | DLinkedListQueue             | W1 Bulk                           | 14.20          |
+| Queue          | DLinkedListQueue             | W2 Mixed                          | 38.95          |
+| PriorityQueue  | SortedArrayListPQ            | W1 Bulk (uniform)                 | 3965.72        |
+| PriorityQueue  | SortedArrayListPQ            | W2 Mixed (uniform)                | 4124.32        |
+| PriorityQueue  | SortedArrayListPQ            | W3 Skewed                         | 4467.06        |
+| PriorityQueue  | SortedDLinkedListPQ          | W1 Bulk (uniform)                 | 23542.88       |
+| PriorityQueue  | SortedDLinkedListPQ          | W2 Mixed (uniform)                | 21629.61       |
+| PriorityQueue  | SortedDLinkedListPQ          | W3 Skewed                         | 25662.27       |
+| PriorityQueue  | BinaryHeapPQ                 | W1 Bulk (uniform)                 | 74.09          |
+| PriorityQueue  | BinaryHeapPQ                 | W2 Mixed (uniform)                | 62.22          |
+| PriorityQueue  | BinaryHeapPQ                 | W3 Skewed                         | 59.41          |
+
+---
+
 # Overall Conclusion
 
 Across all three ADTs, array-based structures generally outperformed linked list implementations due to better memory layout and fewer object allocations.  
 
 The heap-based priority queue clearly dominates because it maintains order efficiently without the heavy cost of keeping the entire structure sorted.
+
+---
+
+# When Each Is Best
+
+- **ArrayListStack / ArrayListQueue:** Best overall performance for general use.  
+- **DLinkedList versions:** Acceptable, but typically slower due to pointer overhead.  
+- **BinaryHeapPriorityQueue:** Best choice for large or frequently updated priority queues.
