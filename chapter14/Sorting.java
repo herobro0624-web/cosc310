@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Sorting {
 
+<<<<<<< HEAD
     private static void swap(ArrayList<Comparable> list, int i, int j) {
         Comparable temp = list.get(i);
         list.set(i, list.get(j));
@@ -22,12 +23,38 @@ public class Sorting {
             for (int j = i + 1; j < list.size(); j++) {
                 Comparable c = list.get(j);
                 if (c.compareTo(smallest) < 0){
+=======
+    private static <T extends Comparable<T>> void swap(ArrayList<T> list, int i, int j) {
+        T tmp = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, tmp);    
+    }
+    
+    // Comparable
+    // o1.compareTo(o2) ... returns -1 if o1 is "less than" o2
+    // o1.compareTo(o2) ... returns 0 if o1 is "equal to" o2
+    // o1.compareTo(o2) ... returns 1 if o1 is "great than" o2
+    // destructive method (i.e., it modifies the original list)
+    public static <T extends Comparable<T>> void selectionSort(ArrayList<T> list) {
+        // some optimizations
+        if (list.size()<2) {
+            return;
+        }
+
+        for (int i=0; i<list.size()-1; i++) {
+            T smallest = list.get(i);
+            int smallesti = i;
+            for (int j=i+1; j<list.size(); j++) {
+                T c = list.get(j);
+                if (c.compareTo(smallest)<0) {
+>>>>>>> 3077e7ce941195c7cec1014b38ca993d34373538
                     smallest = c;
                     smallesti = j;
                 }
             }
             swap(list, i, smallesti);
         }
+<<<<<<< HEAD
 
         
     }
@@ -36,4 +63,37 @@ public class Sorting {
         test.add(null);
     }
     
+=======
+    }
+
+    public static <T extends Comparable<T>> void insertionSort(ArrayList<T> list) {
+        // some optimizations
+        if (list.size()<2) {
+            return;
+        }
+
+        for (int i = 1; i<list.size(); i++) {
+            T next = list.get(i);
+            list.remove(i); // remove it from the list (unconditionally)
+            int j=i-1;
+            for (; j>=0 && list.get(j).compareTo(next)>0; j--); // this empty for loop finds the right spot for next
+            list.add(j+1, next); // insert it at the right spot
+        }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> test = new ArrayList<>();
+        test.add(5);
+        test.add(7);
+        test.add(32);
+        test.add(2);
+        test.add(15);
+        System.out.println(test);
+        selectionSort(test);
+        System.out.println(test);
+        insertionSort(test);
+        System.out.println(test);
+    }
+
+>>>>>>> 3077e7ce941195c7cec1014b38ca993d34373538
 }
