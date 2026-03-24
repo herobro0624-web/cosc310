@@ -50,6 +50,17 @@ public class Sorting {
         }
     }
 
+    private static void bubbleSort(ArrayList<Integer> test) {
+        for (int i = 0; i < test.size(); i++) {
+            for (int j = 0; j < test.size(); j++) {
+                if (test.get(j- 1).compareTo(test.get(j))>0)
+                    swap(test, j - 1, j);
+                System.out.println(test);
+            }
+            
+        }
+    }
+
     public static void main(String[] args) {
         ArrayList<Integer> test = new ArrayList<>();
         test.add(5);
@@ -58,10 +69,12 @@ public class Sorting {
         test.add(2);
         test.add(15);
         System.out.println(test);
+        bubbleSort(test);
+        System.out.println(test);
+
         selectionSort(test);
-        System.out.println(test);
         insertionSort(test);
-        System.out.println(test);
+        
     }
 
 }
