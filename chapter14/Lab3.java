@@ -19,6 +19,7 @@ public class Lab3 {
         records.addAll(records2);
         records.addAll(records3);
         records.addAll(records4);
+        
         System.out.println(records.size());
         BikeDataRecord.sortCriteria = 0;
         List<BikeDataRecord> sortedRecords = Sorting.mergeSort(records);

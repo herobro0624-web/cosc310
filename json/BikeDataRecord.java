@@ -17,16 +17,16 @@ public class BikeDataRecord implements Comparable<BikeDataRecord> {
     // Cadence (rpm)
     // Temperature (degC)
     // Radar array (which itself is an array of cars, with each car listing the distance behind (m) and relative approach speed (m/s))
-    private long timestamp;
-    private float distance;
-    private int heartrate;
+    private long timestamp; // add this 631065600 to convert to UTC Time
+    private float distance; // m
+    private int heartrate; // bpm
     private float speed; // rider speed in m/s
     private float alt; // m
-    private float lat; // m
-    private float lng; // m
-    private int pow; // m
-    private int cad; // m
-    private int degC; // m
+    private float lat; 
+    private float lng; 
+    private int pow; // watts
+    private int cad; // rpm
+    private int degC; // degree Celcius 
     private int[][] radarArray = null; // no cars are coming or going so we can get the EXACT sized array when we parse in the data
 
     // SORT CRITERIA - CHANGE THIS TO WHAT YOU WANT TO SORT BY - DEFAULTS TO DISTANCE B/C ALREADY SORTED BY TIMESTAMP
