@@ -29,8 +29,8 @@ public class BikeDataRecord implements Comparable<BikeDataRecord> {
     private int degC; // m
     private int[][] radarArray = null; // no cars are coming or going so we can get the EXACT sized array when we parse in the data
 
-    // This is the sort criteria, which is what we want to sort by
-    public static int sortCriteria = 1; // 0 - Timestamp, 1 - Distance, 2 - Heartrate, etc.
+    // SORT CRITERIA - CHANGE THIS TO WHAT YOU WANT TO SORT BY - DEFAULTS TO DISTANCE B/C ALREADY SORTED BY TIMESTAMP
+    public static int sortCriteria = 1; // 0-timestamp, 1-distance, 2-heartrate, 3-speed, etc...
 
     public BikeDataRecord(JSONArray recjson) {
         timestamp = Long.parseLong(recjson.getString(0));
@@ -64,17 +64,17 @@ public class BikeDataRecord implements Comparable<BikeDataRecord> {
     @Override
     public int compareTo(BikeDataRecord o) {
         switch (sortCriteria) {
-            case 0: return Long.compare(timestamp, o.timestamp);
-            case 1: return Float.compare(distance, o.distance);
-            case 2: return Integer.compare(heartrate, o.heartrate);
-            case 3: return Float.compare(speed, o.speed);
-            case 4: return Float.compare(alt, o.alt);
-            case 5: return Float.compare(lat, o.lat);
-            case 6: return Float.compare(lng, o.lng);
-            case 7: return Integer.compare(pow, o.pow);
-            case 8: return Integer.compare(cad, o.cad);
-            case 9: return Integer.compare(degC, o.degC);
-            case 10: return Integer.compare(radarArray.length, o.radarArray.length);
+            case 0: return Long.compare(timestamp, o.timestamp); 
+            case 1: return Float.compare(distance, o.distance); 
+            case 2: return Integer.compare(heartrate, o.heartrate); 
+            case 3: return Float.compare(speed, o.speed); 
+            case 4: return Float.compare(alt, o.alt); 
+            case 5: return Float.compare(lat, o.lat); 
+            case 6: return Float.compare(lng, o.lng); 
+            case 7: return Integer.compare(pow, o.pow); 
+            case 8: return Integer.compare(cad, o.cad); 
+            case 9: return Integer.compare(degC, o.degC); 
+            case 10: return Integer.compare(radarArray.length, o.radarArray.length); 
             default:
                 return Float.compare(alt, o.alt);
         }
