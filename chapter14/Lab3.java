@@ -20,6 +20,16 @@ public class Lab3 {
         records.addAll(records3);
         records.addAll(records4);
         
+        // sorting by speed
+        records.sort((r1, r2)-> Float.compare(r2.getSpeed(),r1.getSpeed()));
+        List<BikeDataRecord> highSpeeds  = records.stream().filter((r)->r.getSpeed() > 16.0).toList();
+        System.out.println(highSpeeds.size());
+        int hrtotal1 = highSpeeds.stream().map((r)->r.getHeartrate()).reduce(0, Integer::sum);
+        System.out.println(hrtotal1/highSpeeds.size());
+        // This kills future S.out lines
+        System.exit(1);
+
+
         System.out.println(records.size());
 
         // 0-timestamp, 1-distance, 2-heartrate, 3-speed, 4-alt, 5-lat, 6-lng, 7-pow, 8-cad, 9-degC, 10-radarArray
