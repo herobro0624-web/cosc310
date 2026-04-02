@@ -21,12 +21,10 @@ public class Lab3 {
         records.addAll(records4);
         
         System.out.println(records.size());
+
+        // 0-timestamp, 1-distance, 2-heartrate, 3-speed, 4-alt, 5-lat, 6-lng, 7-pow, 8-cad, 9-degC, 10-radarArray
         BikeDataRecord.sortCriteria = 0;
         List<BikeDataRecord> sortedRecords = Sorting.mergeSort(records);
-        System.out.println(sortedRecords.get(0));
-        System.out.println(sortedRecords.get(1));
-        System.out.println(sortedRecords.get(2));
-        System.out.println("...");
         int count = 0;
         for (BikeDataRecord bikeDataRecord : sortedRecords) {
             if (bikeDataRecord.getHeartrate()>0) {

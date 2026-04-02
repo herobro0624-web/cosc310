@@ -7,6 +7,15 @@ import json.BikeDataRecord;
 
 public class Searching {
     
+    // 0-timestamp(long)
+    // 1-distance(float), 3-speed(float), 4-alt(float), 5-lat(float), 6-lng(float), 9-degC(float)
+    // 2-heartrate(int), 7-pow(int), 8-cad(int)
+    // 10-radarArray(bad)
+
+    // THIS IS THE LINEAR SEARCH PORTION
+
+
+    // only takes the timestamp (index 0)
     public static ArrayList<BikeDataRecord> linearSearch(ArrayList<BikeDataRecord> haystack, long needle) {
         ArrayList<BikeDataRecord> hits = new ArrayList<>();
         Iterator<BikeDataRecord> it = haystack.iterator();
@@ -19,7 +28,7 @@ public class Searching {
         return hits;
     }
 
-    // only valid indices are 2, 7, 8, 9
+    // valid indices are 2, 7, 8
     public static ArrayList<BikeDataRecord> linearSearch(int val, int index) {
         ArrayList<BikeDataRecord> hits = new ArrayList<>();
         Iterator<BikeDataRecord> it = hits.iterator();
@@ -29,16 +38,31 @@ public class Searching {
                 case 2: if (r.getHeartrate()==val) { hits.add(r); } break;
                 case 7: if (r.getPow()==val) { hits.add(r); } break;
                 case 8: if (r.getCad()==val) { hits.add(r); } break;
-                case 9: if (r.getDegC()==val) { hits.add(r); } break;
             }
         }
         return hits;
     }
     
+    // valid indices are 1, 3, 4, 5, 6, 9
     public static ArrayList<BikeDataRecord> linearSearch(float val, int index) {
-        // to do: search by the other fields that are floats
-        return null;
+        ArrayList<BikeDataRecord> hits = new ArrayList<>();
+        Iterator<BikeDataRecord> it = hits.iterator();
+        while(it.hasNext()) {
+            BikeDataRecord r = it.next();
+            switch (index) {
+                case 1: if (r.getDistance()==val) { hits.add(r); } break;
+                case 3: if (r.getSpeed()==val) { hits.add(r); } break;
+                case 4: if (r.getAlt()==val) { hits.add(r); } break;
+                case 5: if (r.getLat()==val) { hits.add(r); } break;
+                case 6: if (r.getLng()==val) { hits.add(r); } break;
+                case 9: if (r.getDegC()==val) { hits.add(r); } break;
+            }
+        }
+        return hits;
     }
+
+
+    // THIS IS THE BINARY SEARCH PORTION
 
     // no need for index b/c we are only searching by timestamp (it's the only long field!)
     public static ArrayList<BikeDataRecord> binarySearch(ArrayList<BikeDataRecord> haystack, int start, int end, long needle) {
@@ -117,7 +141,7 @@ public class Searching {
                 case 2: val = r.getHeartrate(); break;
                 case 7: val = r.getPow(); break;
                 case 8: val = r.getCad(); break;
-                case 9: val = r.getDegC(); break;
+                // case 9: val = r.getDegC(); break;
                 default: val = 0;
             }
             if (val == needle) {
@@ -131,7 +155,7 @@ public class Searching {
                         case 2: val = r.getHeartrate(); break;
                         case 7: val = r.getPow(); break;
                         case 8: val = r.getCad(); break;
-                        case 9: val = r.getDegC(); break;
+                        // case 9: val = r.getDegC(); break;
                         default: val = 0;
                     }
                 }
@@ -144,7 +168,7 @@ public class Searching {
                             case 2: val = r.getHeartrate(); break;
                             case 7: val = r.getPow(); break;
                             case 8: val = r.getCad(); break;
-                            case 9: val = r.getDegC(); break;
+                            // case 9: val = r.getDegC(); break;
                             default: val = 0;
                         }
                     }
@@ -157,7 +181,7 @@ public class Searching {
                         case 2: val = r.getHeartrate(); break;
                         case 7: val = r.getPow(); break;
                         case 8: val = r.getCad(); break;
-                        case 9: val = r.getDegC(); break;
+                        // case 9: val = r.getDegC(); break;
                         default: val = 0;
                     }
                 }
@@ -170,7 +194,7 @@ public class Searching {
                             case 2: val = r.getHeartrate(); break;
                             case 7: val = r.getPow(); break;
                             case 8: val = r.getCad(); break;
-                            case 9: val = r.getDegC(); break;
+                            // case 9: val = r.getDegC(); break;
                             default: val = 0;
                         }
                     }

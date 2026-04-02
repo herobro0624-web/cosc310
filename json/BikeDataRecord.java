@@ -26,7 +26,7 @@ public class BikeDataRecord implements Comparable<BikeDataRecord> {
     private float lng; 
     private int pow; // watts
     private int cad; // rpm
-    private int degC; // degree Celcius 
+    private float degC; // degree Celcius 
     private int[][] radarArray = null; // no cars are coming or going so we can get the EXACT sized array when we parse in the data
 
     // SORT CRITERIA - CHANGE THIS TO WHAT YOU WANT TO SORT BY - DEFAULTS TO DISTANCE B/C ALREADY SORTED BY TIMESTAMP
@@ -42,7 +42,7 @@ public class BikeDataRecord implements Comparable<BikeDataRecord> {
         lng = Float.parseFloat(recjson.getString(6));
         pow = Integer.parseInt(recjson.getString(7));
         cad = Integer.parseInt(recjson.getString(8));
-        degC = Integer.parseInt(recjson.getString(9));
+        degC = Float.parseFloat(recjson.getString(9));
         // now let's parse in the vehicle data (from the radar array)
         JSONArray jsonRadarArray = recjson.getJSONArray(10);
         if (jsonRadarArray.length()>0) {
@@ -73,7 +73,7 @@ public class BikeDataRecord implements Comparable<BikeDataRecord> {
             case 6: return Float.compare(lng, o.lng); 
             case 7: return Integer.compare(pow, o.pow); 
             case 8: return Integer.compare(cad, o.cad); 
-            case 9: return Integer.compare(degC, o.degC); 
+            case 9: return Float.compare(degC, o.degC); 
             case 10: return Integer.compare(radarArray.length, o.radarArray.length); 
             default:
                 return Float.compare(alt, o.alt);
@@ -123,7 +123,7 @@ public class BikeDataRecord implements Comparable<BikeDataRecord> {
         return cad;
     }
 
-    public int getDegC() {
+    public float getDegC() {
         return degC;
     }
 
