@@ -20,6 +20,14 @@ public class Lab3 {
         records.addAll(records3);
         records.addAll(records4);
 
+
+        // sort by temp 
+        records.sort((r1, r2)->Float.compare(r2.getDegC(),r1.getDegC()));
+        List<BikeDataRecord> highTemp = records.stream().filter((r)->r.getDegC()>29.0f).toList();
+        int bpmTotal = highTemp.stream().map((r)->r.getHeartrate()).reduce(0,Integer::sum);
+        System.out.println(highTemp.size());
+        System.out.println(bpmTotal/highTemp.size());
+
         // sort by speed ... new, easier way to sort ... but note that it is mutative (i.e., it modifies the original list)
         records.sort((r1, r2)->Float.compare(r2.getSpeed(),r1.getSpeed()));
         List<BikeDataRecord> highspeedsonly = records.stream().filter((r)->r.getSpeed()>16.0f).toList();
@@ -36,10 +44,9 @@ public class Lab3 {
             System.out.println(bikeDataRecord);
         }
         
-
         // old way of sorting using our own merge sort implementation and the sortCriteria static variable
         // 0-timestamp, 1-distance, 2-heartrate, 3-speed, 4-alt, 5-lat, 6-lng, 7-pow, 8-cad, 9-degC, 10-radarArray
-        BikeDataRecord.sortCriteria = 0;
+        BikeDataRecord.sortCriteria = 9;
         List<BikeDataRecord> sortedRecords = Sorting.mergeSort(records);
         int count = 0;
         for (BikeDataRecord bikeDataRecord : sortedRecords) {
